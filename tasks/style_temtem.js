@@ -44,9 +44,6 @@ module.exports = function(grunt) {
                 cssText += parts[3];
             });
 
-            
-            
-
             if (options.preprocessor === 'scss') {
                 grunt.file.write(tmpScssFile, cssText);
             }else {
@@ -62,5 +59,4 @@ module.exports = function(grunt) {
             grunt.file.write(resultPath, outputSrc);
         });
     });
-
 };
