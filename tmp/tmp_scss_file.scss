@@ -1,6 +1,6 @@
-@import "tmp_css_copy_file.scss"
+@import "tmp/tmp_css_copy_file.scss";
 @include mixin-attr-icon(1);
 @include mixin-attr-icon(2);
 @include mixin-attr-icon(3);
 
-@include mixin-flow-next-down()
+@include mixin-flow-next-down();

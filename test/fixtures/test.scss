@@ -42,7 +42,7 @@ body {
 </ul>
 <p class="next-down">▼</p>
 ```
-@include mixin-flow-next-down()
+@include mixin-flow-next-down();
 */
 @mixin mixin-flow-next-down {
 	.next-down {

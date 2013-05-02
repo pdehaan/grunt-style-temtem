@@ -9,7 +9,8 @@
 'use strict';
 var jsdom = require('jsdom').jsdom,
     md = require("node-markdown").Markdown,
-    ejs = require('ejs');
+    ejs = require('ejs'),
+    sass = require('node-sass');
 
 var tmpCssCopyFile = 'tmp/tmp_css_copy_file.scss',
     tmpCssFile = 'tmp/tmp_css_file.css',
@@ -28,7 +29,8 @@ module.exports = function(grunt) {
                 tempPath = fileObj.temp,
                 resultPath = fileObj.result,
                 filesrc = grunt.file.read(cssPath),
-                cssText = "@import \"" + tmpCssCopyFile.split('tmp/').pop() + "\"",
+                // cssText = "@import \"" + tmpCssCopyFile.split('tmp/').pop() + "\";",
+                cssText = "@import \"" + tmpCssCopyFile + "\";",
                 parts;
             
             grunt.file.write(tmpCssCopyFile, grunt.file.read(cssPath));
@@ -42,16 +44,22 @@ module.exports = function(grunt) {
                 cssText += parts[3];
             });
 
-            var outputSrc = ejs.render(grunt.file.read(tempPath), {
-                items : htmlParts
-            });
-            grunt.file.write(resultPath, outputSrc);
             
+            
+
             if (options.preprocessor === 'scss') {
                 grunt.file.write(tmpScssFile, cssText);
             }else {
                 grunt.file.write(tmpCssFile, cssText);
-            }        
+            }
+
+            var outputSrc = ejs.render(grunt.file.read(tempPath), {
+                items : htmlParts,
+                style : sass.renderSync(cssText, {
+                    includePaths : ['./tmp/tmp_css_copy_file.scss']
+                })
+            });
+            grunt.file.write(resultPath, outputSrc);
         });
     });
 
