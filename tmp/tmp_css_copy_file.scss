@@ -19,16 +19,15 @@ body {
 */
 @mixin mixin-attr-icon($attr) {
 	.attr-icon#{$attr} {
-		display: inline-block;
-		padding: 0 25px;
-		position: relative;
-		z-index: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 }
 
 
 /*
-# mixin-flow-next-down
+# mixin-next-down
 
 ```
 <ul>
@@ -42,16 +41,11 @@ body {
 </ul>
 <p class="next-down">▼</p>
 ```
-@include mixin-flow-next-down();
+@include mixin-next-down();
 */
-@mixin mixin-flow-next-down {
+@mixin mixin-next-down {
 	.next-down {
-			margin-left: auto;
-			margin-right: auto;
-			padding-top: 25px;
-			overflow: hidden;
-			background-size: 250px auto;
-			width: 250px;
-			height: 0;
+		margin: 0;
+		padding: 0;
 	}
 }
