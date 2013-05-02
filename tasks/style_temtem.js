@@ -7,7 +7,7 @@
  */
 
 'use strict';
-var jsdom = require('jsdom').jsdom,
+var 
     md = require("node-markdown").Markdown,
     ejs = require('ejs'),
     sass = require('node-sass');
@@ -16,13 +16,12 @@ var tmpCssCopyFile = 'tmp/tmp_css_copy_file.scss',
     tmpCssFile = 'tmp/tmp_css_file.css',
     tmpScssFile = 'tmp/tmp_scss_file.scss';
 module.exports = function(grunt) {
-    grunt.registerTask('style_temtem', 'discription', function() {
+    grunt.registerMultiTask('style_temtem', 'discription', function() {
         var options = this.options({
             preprocessor : 'scss'
         });
         var config = grunt.config('style_temtem'),
-            cssArr = config.files;
-
+            cssArr = this.data.files;
         cssArr.forEach(function(fileObj) {
             var htmlParts = [],
                 cssPath = fileObj.css,

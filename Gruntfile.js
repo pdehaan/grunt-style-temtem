@@ -30,15 +30,30 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     style_temtem: {
-      files: [
-        {
-          css : 'test/fixtures/test.scss',
-          temp : 'test/fixtures/temp.html',
-          result : 'test/fixtures/result.html'
+      default : {
+        files: [
+          {
+            css : 'test/fixtures/test.scss',
+            temp : 'test/fixtures/temp.html',
+            result : 'test/fixtures/result.html'
+          }          
+        ],
+        options : {}
+      },
+      other1 : {
+        files: [
+          {
+            css : 'test/fixtures/test.scss',
+            temp : 'test/fixtures/temp.html',
+            result : 'test/fixtures/result.html'
+          }
+          
+        ],
+        options : {
+          preprocessor : 'less'
         }
-        
-      ],
-      options : {}
+      }
+      
       // custom_options: {
       //   options: {
       //     separator: ': ',
