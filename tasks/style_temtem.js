@@ -24,15 +24,15 @@ module.exports = function(grunt) {
             cssArr = this.data.files;
         cssArr.forEach(function(fileObj) {
             var htmlParts = [],
-                cssPath = fileObj.css,
-                tempPath = fileObj.temp,
+                targetPath = fileObj.targetFile,
+                templatePath = fileObj.template,
                 resultPath = fileObj.result,
-                filesrc = grunt.file.read(cssPath),
+                filesrc = grunt.file.read(targetPath),
                 // cssText = "@import \"" + tmpCssCopyFile.split('tmp/').pop() + "\";",
                 cssText = "@import \"" + tmpCssCopyFile + "\";",
                 parts;
             
-            grunt.file.write(tmpCssCopyFile, grunt.file.read(cssPath));
+            grunt.file.write(tmpCssCopyFile, grunt.file.read(targetPath));
             filesrc.match(/\/\*[^`]+[\n.]`{3}[^`]*`{3}[^`]*\*\//g).forEach(function(src) {
                 parts = src.match(/\/\*([^`]+)[\n.]`{3}([^`]*)`{3}([^`]*)\*\//);
                 htmlParts.push({
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
                 grunt.file.write(tmpCssFile, cssText);
             }
 
-            var outputSrc = ejs.render(grunt.file.read(tempPath), {
+            var outputSrc = ejs.render(grunt.file.read(templatePath), {
                 items : htmlParts,
                 style : sass.renderSync(cssText, {
                     includePaths : ['./tmp/tmp_css_copy_file.scss']

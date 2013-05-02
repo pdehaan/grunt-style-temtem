@@ -33,8 +33,8 @@ module.exports = function(grunt) {
       default : {
         files: [
           {
-            css : 'test/fixtures/test.scss',
-            temp : 'test/fixtures/temp.html',
+            targetFile : 'test/fixtures/test.scss',
+            template : 'test/fixtures/temp.html',
             result : 'test/fixtures/result.html'
           }          
         ],
@@ -43,8 +43,8 @@ module.exports = function(grunt) {
       other1 : {
         files: [
           {
-            css : 'test/fixtures/test.scss',
-            temp : 'test/fixtures/temp.html',
+            targetFile : 'test/fixtures/test.scss',
+            template : 'test/fixtures/temp.html',
             result : 'test/fixtures/result.html'
           }
           
