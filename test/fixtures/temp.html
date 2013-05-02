@@ -1,0 +1,43 @@
+<style>
+
+</style>
+
+<body>
+<div class="box">
+
+<!-- /template container BGN -->
+<div class="template mrm">
+<% items.forEach(function(item){ %>
+		<!-- template start/ -->
+		<div class="sample-stage">
+			<%- item.template %>
+		</div>
+		<!-- template end/ -->
+<% }) %>
+
+	[% INCLUDE 'sp/footer.inc' %]
+	[% INCLUDE 'sp/menu.inc' %]
+	[% INCLUDE 'sp/footer_mobage.inc' %]
+</div>
+<!-- template container END/ -->
+
+
+<!-- /code container BGN -->
+<div class="flex">
+<% items.forEach(function(item){ %>
+	<!-- codes start/ -->
+	<div class="codes">
+		<%- item.header %>
+		<textarea>
+<%- item.template %>
+		</textarea>
+	</div>
+	<!-- codes end/ -->
+<% }) %>
+</div>
+<!-- code container END/ -->
+
+</div>
+</body>
+</html>
+
