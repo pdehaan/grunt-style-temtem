@@ -51,12 +51,12 @@ module.exports = function(grunt) {
                     })
                 });
                 grunt.file.write(resultPath, outputSrc);
+                grunt.file.delete('./tmp/');
                 console.log('\u001b[32m' + "Success \u001b[0m: " + resultPath);
             }else {
-                console.log('\u001b[33m' + 'Warning \u001b[0m: ' + errorMsg);
                 grunt.file.write(resultPath, errorMsg);
+                console.log('\u001b[33m' + 'Warning \u001b[0m: ' + errorMsg);
             }
-            grunt.file.delete('./tmp/');
         });
     });
 };
