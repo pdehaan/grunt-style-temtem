@@ -27,7 +27,7 @@ module.exports = function(grunt) {
                 templatePath = fileObj.template,
                 resultPath = fileObj.result,
                 filesrc = grunt.file.read(targetPath),
-                regResult = filesrc.match(/\/\*[^`]+[\n.]`{3}[^`]*`{3}[^`]*\*\//g),
+                regResult = filesrc.match(/\/\*\*[^`]+[\n.]`{3}[^`]*`{3}[^`]*?\*\//g),
                 // cssText = "@import \"" + tmpCssCopyFile.split('tmp/').pop() + "\";",
                 cssText = "@import \"" + tmpCssCopyFile + "\";",
                 parts;
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
             if (regResult) {
                 grunt.file.write(tmpCssCopyFile, grunt.file.read(targetPath));
                 regResult.forEach(function(src) {
-                    parts = src.match(/\/\*([^`]+)[\n.]`{3}([^`]*)`{3}([^`]*)\*\//);
+                    parts = src.match(/\/\*\*([^`]+)[\n.]`{3}([^`]*)`{3}([^`]*)\*\//);
                     htmlParts.push({
                         header : md(parts[1]),
                         template : parts[2],
