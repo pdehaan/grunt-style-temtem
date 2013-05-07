@@ -1,0 +1,21 @@
+body {
+    background: #fafafa;
+}
+
+
+@mixin mixin-attr-icon($attr) {
+	.attr-icon#{$attr} {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+
+
+@mixin mixin-next-down {
+	.next-down {
+		margin: 0;
+		padding: 0;
+	}
+}
