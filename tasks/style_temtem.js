@@ -12,9 +12,7 @@ var
     ejs = require('ejs'),
     sass = require('node-sass');
 
-var tmpCssCopyFile = 'tmp/tmp_css_copy_file.scss',
-    tmpCssFile = 'tmp/tmp_css_file.css',
-    tmpScssFile = 'tmp/tmp_scss_file.scss';
+var tmpCssCopyFile = 'tmp/tmp_css_copy_file.scss';
 module.exports = function(grunt) {
     grunt.registerMultiTask('style_temtem', 'discription', function() {
         var options = this.options({
@@ -43,19 +41,14 @@ module.exports = function(grunt) {
                 cssText += parts[3];
             });
 
-            if (options.preprocessor === 'scss') {
-                grunt.file.write(tmpScssFile, cssText);
-            }else {
-                grunt.file.write(tmpCssFile, cssText);
-            }
-
             var outputSrc = ejs.render(grunt.file.read(templatePath), {
                 items : htmlParts,
                 style : sass.renderSync(cssText, {
-                    includePaths : ['./tmp/tmp_css_copy_file.scss']
+                    includePaths : [tmpCssCopyFile]
                 })
             });
             grunt.file.write(resultPath, outputSrc);
+            grunt.file.delete('./tmp/');
         });
     });
 };

@@ -1,7 +1,7 @@
 {
   "name": "grunt-style-temtem",
   "description": "The best Grunt plugin ever.",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "homepage": "",
   "author": {
     "name": "orangemittoo",
@@ -26,6 +26,12 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "dependencies" : {
+    "grunt-contrib-clean": "~0.4.0",
+    "node-markdown": "~0.1.1",
+    "ejs": "~0.8.3",
+    "node-sass": "~0.4.4"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.1.1",

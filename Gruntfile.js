@@ -39,19 +39,6 @@ module.exports = function(grunt) {
           }          
         ],
         options : {}
-      },
-      other1 : {
-        files: [
-          {
-            targetFile : 'test/fixtures/test.scss',
-            template : 'test/fixtures/temp.html',
-            result : 'test/fixtures/result.html'
-          }
-          
-        ],
-        options : {
-          preprocessor : 'less'
-        }
       }
       
       // custom_options: {

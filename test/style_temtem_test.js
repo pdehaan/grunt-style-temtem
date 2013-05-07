@@ -35,15 +35,6 @@ exports.style_temtem = {
     test.equal(actual, expected);
 
     test.done();
-  },
-  other1 : function(test) {
-    test.expect(1);
-    var actual = grunt.file.read('tmp/tmp_css_file.css');
-    var expected = grunt.file.read('test/expected/other1_tmp_css_file.css');
-
-    test.equal(actual, expected);
-
-    test.done();
   }
   // custom_options: function(test) {
     // test.expect(1);
