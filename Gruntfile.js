@@ -34,7 +34,7 @@ module.exports = function(grunt) {
           }          
         ],
         options : {
-          styleImport: false
+          styleImport: true
         }
       },
       other1 : {

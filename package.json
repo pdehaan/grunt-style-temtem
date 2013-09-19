@@ -27,7 +27,7 @@
   "scripts": {
     "test": "grunt test"
   },
-  "dependencies" : {
+  "dependencies": {
     "node-markdown": "~0.1.1",
     "ejs": "~0.8.3",
     "node-sass": "~0.4.4"
