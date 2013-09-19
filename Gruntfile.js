@@ -33,7 +33,9 @@ module.exports = function(grunt) {
             result : 'test/fixtures/result.html'
           }          
         ],
-        options : {}
+        options : {
+          styleImport: false
+        }
       },
       other1 : {
         files: [
