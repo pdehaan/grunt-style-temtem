@@ -44,12 +44,15 @@ module.exports = function(grunt) {
                     cssText += parts[3];
                 });
 
-                var outputSrc = ejs.render(grunt.file.read(templatePath), {
-                    items : htmlParts,
-                    style : sass.renderSync(cssText, {
+                var outputObj = {
+                    items : htmlParts
+                };
+                if (options.styleImport) {
+                    outputObj["style"] = sass.renderSync(cssText, {
                         includePaths : [tmpCssCopyFile]
-                    })
-                });
+                    });
+                }
+                var outputSrc = ejs.render(grunt.file.read(templatePath), outputObj);
                 grunt.file.write(resultPath, outputSrc);
                 grunt.file.delete('./tmp/');
                 console.log('\u001b[32m' + "Success \u001b[0m: " + resultPath);
