@@ -2,22 +2,22 @@
   "name": "grunt-style-temtem",
   "description": "The best Grunt plugin ever.",
   "version": "0.1.9",
-  "homepage": "",
+  "homepage": "https://github.com/orangemittoo/grunt-style-temtem/",
   "author": {
     "name": "orangemittoo",
     "email": "maniacsound19@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/orangemittoo/grunt-style-temtem.git"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/orangemittoo/grunt-style-temtem/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": ""
+      "url": "https://raw.github.com/orangemittoo/grunt-style-temtem/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",
